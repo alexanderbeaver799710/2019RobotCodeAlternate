@@ -51,7 +51,7 @@ public class Manipulator extends Subsystem {
     bottomRoller.enableVoltageCompensation(true);
     bottomRoller.configVoltageCompSaturation(11.3,Constants.SHOULDER_MASTER_TIMEOUT);
     hatchSensor = new DigitalInput(Constants.HATCH_SENSOR_ID);
-    cargoSensor =  new DigitalInput(Constants.CARGO_SENSOR_ID);
+    //cargoSensor =  new DigitalInput(Constants.CARGO_SENSOR_ID);
     bill = new Solenoid(Constants.PCM_CANID,Constants.HATCH_FLIPPER_PCMID);
     hatchPusher = new Solenoid(Constants.PCM_CANID,Constants.HATCH_SCORER_PCMID);
     //cargoScorer = new Solenoid(Constants.PCM_CANID,Constants.EMPTY2_PCMID);
@@ -66,12 +66,13 @@ public class Manipulator extends Subsystem {
     //SmartDashboard.putData("BillSolenoid",bill);
     //SmartDashboard.putData("HatchPushSolenoid",hatchPusher);
     SmartDashboard.putString("Manipulator Current Command",this.getCurrentCommandName());
-    SmartDashboard.putBoolean("Manipulator Cargo Sensor", this.cargoSensor.get());
+    //SmartDashboard.putBoolean("Manipulator Cargo Sensor", this.cargoSensor.get());
     SmartDashboard.putBoolean("Manipulator Hatch Sensor",this.hatchSensor.get());
     SmartDashboard.putString("Maniuplator Holding",this.holding.toString());
     SmartDashboard.putNumber("Random Manipulator Number", Math.random()*100);
-    if(!cargoSensor.get()){
+    if(true == false){
       holding = ScoringObjects.CARGO;
+      
     } else if(hatchSensor.get()){ //Replace to hatch ls triggered
       holding = ScoringObjects.HATCH;
     }else{

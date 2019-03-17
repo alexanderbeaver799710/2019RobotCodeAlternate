@@ -36,7 +36,7 @@ public class ShoulderHoming extends Command {
   @Override
   protected void execute() {
     //System.out.println("@@@@@@"+Math.abs(Robot.carriageShoulder.currentSetpoint-Robot.carriageShoulder.carriageShoulderMotor.getSelectedSensorPosition()));
-    //System.out.println("SETPOTNT"+Robot.carriageShoulder.currentSetpoint);
+    System.out.println("SETPOTNT"+Robot.carriageShoulder.currentSetpoint);
     
     if(Math.abs(Robot.carriageShoulder.currentSetpoint-Robot.carriageShoulder.carriageShoulderMotor.getSelectedSensorPosition())<Constants.SHOULDER_BUFFER){
       done = true;

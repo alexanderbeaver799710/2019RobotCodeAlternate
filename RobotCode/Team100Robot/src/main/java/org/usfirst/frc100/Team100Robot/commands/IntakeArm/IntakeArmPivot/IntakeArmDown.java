@@ -23,7 +23,7 @@ public class IntakeArmDown extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.cargoPickup.cargoIntakePivotDoubleSolenoid.set(Value.kReverse);
+    //Solenoid.set(Value.kReverse);
 
   }
 
@@ -31,13 +31,13 @@ public class IntakeArmDown extends Command {
   @Override
   protected void execute() {
     //System.out.println("INTAKE ARM EXECUTE");
-    //System.out.println(Robot.cargoPickup.cargoIntakePivotDoubleSolenoid.get().toString());
+    //System.out.println(true.get().toString());
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.cargoPickup.cps ==  CargoPickupStates.DOWN;
+    return true ==  true;
   }
 
   // Called once after isFinished returns true

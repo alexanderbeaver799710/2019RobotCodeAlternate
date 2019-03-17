@@ -26,7 +26,7 @@ public class IntakeArmUp extends Command {
   protected void initialize() {
     //System.out.println("#################INTAKE ARM UP STARTED");
     
-    Robot.cargoPickup.cargoIntakePivotDoubleSolenoid.set(Value.kForward);
+    //Solenoid.set(Value.kForward);
 
   }
 
@@ -39,7 +39,7 @@ public class IntakeArmUp extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.cargoPickup.cps ==  CargoPickupStates.UP;
+    return true ==  true;
   }
 
   // Called once after isFinished returns true

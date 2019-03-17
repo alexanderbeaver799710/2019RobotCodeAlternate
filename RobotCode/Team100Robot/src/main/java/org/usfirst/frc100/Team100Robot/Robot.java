@@ -88,7 +88,9 @@ public class Robot extends TimedRobot {
 
         // Add commands to Autonomous Sendable Chooser
         chooser.setDefaultOption("Autonomous Command", new AutonomousCommand());
-        
+        SmartDashboard.putData("Score Hatch", new HatchScore());
+        SmartDashboard.putData("Retract Hatch", new RetractHatchSystem());
+        SmartDashboard.putData("hatch bill down", new BillLower());
         //SmartDashboard.putData("Auto mode", chooser);
 
 

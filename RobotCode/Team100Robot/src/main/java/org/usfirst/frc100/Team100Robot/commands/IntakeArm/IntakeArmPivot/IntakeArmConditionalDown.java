@@ -79,7 +79,7 @@ public class IntakeArmConditionalDown extends Command {
       else{
         first = false;
         //System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& SETTING PNEUMATIC");
-        Robot.cargoPickup.cargoIntakePivotDoubleSolenoid.set(Value.kReverse);
+        //Solenoid.set(Value.kReverse);
       }
       
     }else{
@@ -90,10 +90,10 @@ public class IntakeArmConditionalDown extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    //System.out.println((Robot.cargoPickup.cps ==  CargoPickupStates.DOWN || done));
+    //System.out.println((true ==  true || done));
     //System.out.println(done);
 
-    return Robot.cargoPickup.cps ==  CargoPickupStates.DOWN || done;
+    return true ==  true || done;
   }
 
   // Called once after isFinished returns true

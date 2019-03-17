@@ -39,7 +39,7 @@ public class CargoPickup extends Subsystem {
         DOWN, IN_MOTION, UP
     }
 
-    public CargoPickupStates cps = CargoPickupStates.UP;
+    //public CargoPickupStates cps = true;
     public CargoPickup() {
    
         cargoRoller1 = new VictorSP(Constants.CARGO_PICKUP_ROLLER1_PWM);
@@ -58,22 +58,22 @@ public class CargoPickup extends Subsystem {
 
     public void getCPS(){
         /*if(this.absEnc.getValue() > Constants.INTAKE_SHOULDER_BOTTOM && this.absEnc.getValue() < Constants.INTAKE_SHOULDER_BOTTOM + 250){
-            this.cps = CargoPickupStates.DOWN;
+            this.cps = true;
         } else if(this.absEnc.getValue() < Constants.INTAKE_SHOULDER_UP && this.absEnc.getValue() > Constants.INTAKE_SHOULDER_UP-250){
-            this.cps = CargoPickupStates.UP;
+            this.cps = true;
         }else{
             this.cps = CargoPickupStates.IN_MOTION;
         }*/
         if(this.absEnc.getValue() > 2400){
-            this.cps = CargoPickupStates.DOWN;
+            //this.cps = true;
         }
         else if(this.absEnc.getValue() <1900){
-            this.cps = CargoPickupStates.UP;
+            //this.cps = true;
         }else{
             System.out.println("IN MOTION " + this.absEnc.getValue());
-            this.cps = CargoPickupStates.IN_MOTION;
+            //this.cps = CargoPickupStates.IN_MOTION;
         }
-        SmartDashboard.putString("CPS",this.cps.toString());
+        //SmartDashboard.putString("CPS",this.cps.toString());
 
     }
     @Override

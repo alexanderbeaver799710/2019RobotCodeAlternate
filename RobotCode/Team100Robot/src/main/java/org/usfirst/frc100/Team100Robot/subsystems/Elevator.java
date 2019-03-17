@@ -97,6 +97,7 @@ public class Elevator extends Subsystem {
      * <br />
      * <strong>This should <em>ONLY</em> be used for elevator testing and SHOULD NEVER BE ON DURING COMPETITION</strong>
      */
+
     public static final boolean DISABLE_INTELLIGENT_CONTROL = true;
 
     public boolean homed = false;
@@ -205,7 +206,7 @@ public class Elevator extends Subsystem {
         DOWN,INTERMEDIATE,UP,UNKNOWN
     }
     //Each level is listed cargo then hatch
-    public Setpoint[] setpointsArray = {new Setpoint("BASE", Constants.ELEVATOR_START_HEIGHT_IN_INCHES+3, 0),new Setpoint("CARGO_LEVEL_1",28,1),new Setpoint("HATCH_LEVEL_1",25,2),new Setpoint("CARGO_LEVEL_2",72,3),new Setpoint("HATCH_LEVEL_2",69,4),new Setpoint("CARGO_LEVEL_3",93,5), new Setpoint("HATCH_LEVEL_3",93,6), new Setpoint("CARGO_LEVEL_3_REVERSE [UPDATE VALUE]",83.5,7), new Setpoint("ABOVE_ARM_RAISE_LEVEL [UPDATE VALUE]", 55,8),new Setpoint("Cargo Intake",32, 9), new Setpoint("Hatch Intake",25 /*was 24*/,10)};
+    public Setpoint[] setpointsArray = {new Setpoint("BASE", Constants.ELEVATOR_START_HEIGHT_IN_INCHES+3, 0),new Setpoint("CARGO_LEVEL_1",28,1),new Setpoint("HATCH_LEVEL_1",25,2),new Setpoint("CARGO_LEVEL_2",72,3),new Setpoint("HATCH_LEVEL_2",69,4),new Setpoint("CARGO_LEVEL_3",93,5), new Setpoint("HATCH_LEVEL_3",93,6), new Setpoint("CARGO_LEVEL_3_REVERSE [UPDATE VALUE]",83.5,7), new Setpoint("ABOVE_ARM_RAISE_LEVEL [UPDATE VALUE]", 55,8),new Setpoint("Cargo Intake",32, 9), new Setpoint("Hatch Intake",25 /*was 24*/,10), new Setpoint("Cargo HP Intake",40,11)};
 
 
     public double convertEncoderTicksToInch(int ticks){
@@ -293,6 +294,7 @@ public class Elevator extends Subsystem {
             && this.carriageLowerLimitSwitch.get() 
             && this.intermediateLowerLimitSwitch.get()){ 
             this.atMinHeight = true;
+            System.out.println("AT MIN HEIHGT");
         }else{this.atMinHeight = false;}
 
         if(!this.intermediateUpperLimitSwitch.get() && 
