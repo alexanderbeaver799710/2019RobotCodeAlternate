@@ -99,6 +99,8 @@ public class Elevator extends Subsystem {
      */
 
     public static final boolean DISABLE_INTELLIGENT_CONTROL = true;
+    public static final boolean USE_PID_ASSISTANCE_FOR_TELEOP = false;
+
 
     public boolean homed = false;
 

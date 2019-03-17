@@ -47,6 +47,9 @@ public class CarriageShoulder extends Subsystem {
     public static final int CARGO_INTAKE_SETPOINT = -5;
     public static final int HATCH_INTAKE_SETPOINT = -5;
     
+    public static final boolean USE_PID_ASSISTANCE_DURING_TELEOP = true;
+    public static final boolean ENABLE_TELEOP_CONTROL = true;
+    
 
 
     public WPI_TalonSRX carriageShoulderMotor;
