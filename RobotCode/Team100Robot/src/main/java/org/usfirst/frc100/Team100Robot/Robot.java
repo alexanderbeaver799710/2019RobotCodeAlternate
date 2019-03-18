@@ -33,7 +33,9 @@ import org.usfirst.frc100.Team100Robot.commands.Procedures.RetractHatchSystem;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.Scoring.HatchScore;
 import org.usfirst.frc100.Team100Robot.commands.Shoulder.ShoulderHoming;
 import org.usfirst.frc100.Team100Robot.subsystems.*;
+import org.usfirst.frc100.Team100Robot.vision.VisionTarget;
 import com.kauailabs.navx.frc.*;
+import java.util.ArrayList;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -60,6 +62,8 @@ public class Robot extends TimedRobot {
     public static AHRS ahrs;
     public static Manipulator manipulator;
     public static Global global;
+
+    public static volatile ArrayList<VisionTarget> targets = new ArrayList<>();
 
     /**
      * This function is run when the robot is first started up and should be

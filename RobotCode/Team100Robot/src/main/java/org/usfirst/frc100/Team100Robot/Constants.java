@@ -184,7 +184,7 @@ public class Constants {
       */
     public static final int CARGO_MANIPULATOR_TOP_TALONSRX_ID = 5;
     public static final int CARGO_MANIPULATOR_BOTTOM_TALONSRX_ID = 4;
-    public static final double CARGO_MANIPULATOR_INTAKE_SPEED = 0.5;
+    public static final double CARGO_MANIPULATOR_INTAKE_SPEED = 1;
     public static final double CARGO_MANIPULATOR_OUTTAKE_SPEED = -1;
 
     public static final double CARGO_EXPEL_DURATION = 1; //Type: Seconds
@@ -192,6 +192,10 @@ public class Constants {
 
     public static final int CARGO_SENSOR_ID = 9;
     public static final int HATCH_SENSOR_ID = 8;
+
+
+
+
 
 
 

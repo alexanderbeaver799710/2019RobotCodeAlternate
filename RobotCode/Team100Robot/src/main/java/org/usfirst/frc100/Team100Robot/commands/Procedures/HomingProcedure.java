@@ -39,7 +39,7 @@ public class HomingProcedure extends CommandGroup {
     requires(Robot.carriageShoulder);
     requires(Robot.cargoPickup);*/
     addSequential(new IntakeArmDown());
-    addSequential(new ShoulderHoming());
+    //addSequential(new ShoulderHoming());
     //addSequential(new WaitForUserInput());
     //addSequential(new WaitForUserInput());
     addSequential(new ElevatorHomingInit());

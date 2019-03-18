@@ -31,6 +31,7 @@ import org.usfirst.frc100.Team100Robot.commands.HatchManipulator.Pusher.*;
 import org.usfirst.frc100.Team100Robot.commands.IntakeArm.IntakeArmIntakeElement;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.HomingProcedure;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.HumanPlayerHatchIntake;
+import org.usfirst.frc100.Team100Robot.commands.Procedures.RetractHatchSystem;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.ToggleHatchBill;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.ElevatorTravel.ElevatorGoToCargoHPIntake;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.ElevatorTravel.ElevatorGoToHomeProcedure;
@@ -48,6 +49,7 @@ import org.usfirst.frc100.Team100Robot.commands.Shoulder.ShoulderHoming;
 import org.usfirst.frc100.Team100Robot.commands.Shoulder.ShoulderUp;
 import org.usfirst.frc100.Team100Robot.subsystems.HatchPickup;
 import org.usfirst.frc100.Team100Robot.commands.Procedures.CargoGroundIntake;
+import org.usfirst.frc100.Team100Robot.commands.Procedures.HatchBillOut;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
@@ -91,6 +93,7 @@ public class OI {
     private Joystick manipulatorControl;
     private Joystick buttonBoard;
     
+
     private JoystickButton shiftLow;
     private JoystickButton shiftHigh;
     private JoystickButton spitCargo;
@@ -105,6 +108,12 @@ public class OI {
     private JoystickButton hatchRelease;
     private JoystickButton elevatorStageDown;
     private JoystickButton restartHoming;
+
+    private JoystickButton hatchOut;
+    private JoystickButton hatchScore;
+    private JoystickButton hatchRetract;
+    private JoystickButton intakeCargoManipulatorJoystick;
+    private JoystickButton outtakeCargoManipulatorJoystick;
 
     // ButtonBoard
 
@@ -131,6 +140,8 @@ public class OI {
         leftStick = new Joystick(0);
         rightStick = new Joystick(1);
         //manipulatorControl = new Joystick(2);
+        manipulatorControl = new Joystick(2);
+
         buttonBoard = new Joystick(3);
 
         
@@ -170,6 +181,22 @@ public class OI {
         hatchRelease = new JoystickButton(manipulatorControl, 7);
         elevatorStageDown = new JoystickButton(manipulatorControl, 8);*/
 
+        
+        hatchRetract = new JoystickButton(manipulatorControl, 1);
+        hatchRetract.whenPressed(new RetractHatchSystem());
+        hatchScore = new JoystickButton(manipulatorControl, 8);
+        hatchScore.whenPressed(new HatchScore());
+        hatchOut = new JoystickButton(manipulatorControl, 3);
+    
+
+
+        
+        hatchOut.whenPressed(new HatchBillOut());
+        intakeCargoManipulatorJoystick = new JoystickButton(manipulatorControl, 5);
+        intakeCargoManipulatorJoystick.whileHeld(new CargoManipulatorIntake());
+        outtakeCargoManipulatorJoystick = new JoystickButton(manipulatorControl, 6);
+        outtakeCargoManipulatorJoystick.whileHeld(new CargoManipulatorOuttake());
+        
         //Button Board
         hatchIntake= new JoystickButton(buttonBoard,1);
         cargoIntake= new JoystickButton(buttonBoard,2);

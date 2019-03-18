@@ -111,7 +111,16 @@ public class Drivetrain extends Subsystem implements PIDOutput {
     }
 
     public void drive(){
+    if(/*Robot.targets.get(0) != null && Robot.oi.getLeftStick().getRawButton(0)*/false == true){ //TODO Change button
+        double motorArcadeOutput = Math.tanh(Robot.targets.get(0).getAngle());
+        differentialDrive.arcadeDrive(-Robot.oi.getLeftStick().getY(), motorArcadeOutput);
+
+    
+    }else{
         differentialDrive.arcadeDrive(-Robot.oi.getLeftStick().getY(), Robot.oi.getRightStick().getX());
+
+    }
+
         
     }
 

@@ -98,7 +98,7 @@ public class Elevator extends Subsystem {
      * <strong>This should <em>ONLY</em> be used for elevator testing and SHOULD NEVER BE ON DURING COMPETITION</strong>
      */
 
-    public static final boolean DISABLE_INTELLIGENT_CONTROL = true;
+    public static final boolean DISABLE_INTELLIGENT_CONTROL = false;
     public static final boolean USE_PID_ASSISTANCE_FOR_TELEOP = false;
 
 
@@ -131,8 +131,8 @@ public class Elevator extends Subsystem {
         elevatorMaster.overrideLimitSwitchesEnable(false);
         elevatorMaster.enableVoltageCompensation(true);
         elevatorMaster.configVoltageCompSaturation(Constants.ELEVATOR_VOLTAGE_COMPENSATE);
-        elevatorMaster.configForwardSoftLimitEnable(true);
-        elevatorMaster.configReverseSoftLimitEnable(true);
+        elevatorMaster.configForwardSoftLimitEnable(false);
+        elevatorMaster.configReverseSoftLimitEnable(false);
         elevatorMaster.configForwardSoftLimitThreshold(convertInchesToTicks(Constants.ELEVATOR_MAX_HEIGHT_IN_INCHES), Constants.ELEVATOR_MASTER_TIMEOUT);
         elevatorMaster.configReverseSoftLimitThreshold(Constants.ELEVATOR_LOWER_SOFT_LIMIT,Constants.ELEVATOR_MASTER_TIMEOUT);
         elevatorMaster.configContinuousCurrentLimit(Constants.ELEVATOR_MAX_AMP);
@@ -293,10 +293,10 @@ public class Elevator extends Subsystem {
         }
         if(this.intermediateUpperLimitSwitch.get() 
             && this.carriageUpperLimitSwitch.get() 
-            && this.carriageLowerLimitSwitch.get() 
+            && !this.carriageLowerLimitSwitch.get() 
             && this.intermediateLowerLimitSwitch.get()){ 
             this.atMinHeight = true;
-            System.out.println("AT MIN HEIHGT");
+            //System.out.println("AT MIN HEIHGT");
         }else{this.atMinHeight = false;}
 
         if(!this.intermediateUpperLimitSwitch.get() && 

@@ -55,9 +55,12 @@ public class ElevatorTeleop extends Command {
       Robot.elevator.elevatorMaster.set(ControlMode.PercentOutput,0);
   }*/
   if(Math.abs(Robot.oi.getManipulatorControl().getRawAxis(3)) > 0.2){
-    Robot.elevator.elevatorMaster.set(ControlMode.PercentOutput,-Robot.oi.getManipulatorControl().getRawAxis(3)*.4);
+    Robot.elevator.elevatorMaster.set(ControlMode.PercentOutput,-Robot.oi.getManipulatorControl().getRawAxis(3)*.55);
   }else if(Robot.elevator.USE_PID_ASSISTANCE_FOR_TELEOP){
     Robot.elevator.elevatorMaster.set(ControlMode.MotionMagic, Robot.elevator.elevatorMaster.getSelectedSensorPosition());
+  }else{
+    Robot.elevator.elevatorMaster.set(ControlMode.PercentOutput,0);
+
   }
 
   }
